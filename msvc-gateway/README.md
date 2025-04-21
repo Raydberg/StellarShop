@@ -1,26 +1,30 @@
-# Getting Started
+# Microservice Gateway
 
-### Reference Documentation
+## Dependencias de Spring Inizalirs
 
-For further reference, please consider the following sections:
+Gateway Reactive
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.4/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.4.4/maven-plugin/build-image.html)
-* [Reactive Gateway](https://docs.spring.io/spring-cloud-gateway/reference/spring-cloud-gateway.html)
+## Dependencias externas
 
-### Guides
+```xml
 
-The following guides illustrate how to use some features concretely:
-
-* [Using Spring Cloud Gateway](https://github.com/spring-cloud-samples/spring-cloud-gateway-sample)
-
-### Maven Parent overrides
-
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like
-`<license>` and
-`<developers>` from the parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
-
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.6</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+<dependency>
+<groupId>io.jsonwebtoken</groupId>
+<artifactId>jjwt-impl</artifactId>
+<version>0.12.6</version>
+<scope>runtime</scope>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson -->
+<dependency>
+<groupId>io.jsonwebtoken</groupId>
+<artifactId>jjwt-jackson</artifactId>
+<version>0.12.6</version>
+<scope>runtime</scope>
+</dependency>
+```
