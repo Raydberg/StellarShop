@@ -1,9 +1,12 @@
 package com.product.controller;
 
+import com.product.model.SupplierModel;
 import com.product.service.SupplierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -12,28 +15,28 @@ public class SupplierController {
     private final SupplierService supplierService;
 
     @GetMapping("")
-    public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok("");
+    public ResponseEntity<List<SupplierModel>> getAll() {
+        return ResponseEntity.ok(supplierService.findAll());
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id) {
-        return ResponseEntity.ok("");
+    public ResponseEntity<SupplierModel> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(supplierService.findById(id));
     }
 
     @PostMapping("")
-    public ResponseEntity<?> create() {
-        return ResponseEntity.ok("");
+    public ResponseEntity<SupplierModel> create(@RequestBody SupplierModel supplierModel) {
+        return ResponseEntity.ok(supplierService.create(supplierModel));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<?> update() {
-        return ResponseEntity.ok("");
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SupplierModel supplierModel) {
+        return ResponseEntity.ok(supplierService.update(id, supplierModel));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-
+        supplierService.deleted(id);
         return ResponseEntity.noContent().build();
     }
 

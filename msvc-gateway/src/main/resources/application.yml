@@ -4,18 +4,20 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: servicel
-          uri: http://localhost:9001
+        - id: msvc-product
+          uri: http://localhost:9003
           predicates:
-            - Path=/api/saludo/**
+            - Path=/api/product/**
           filters:
             - AuthenticationFilter
-        - id: service2
-          uri: http://localhost:9002
+
+        - id: msvc-supplier
+          uri: http://localhost:9005
           predicates:
-            - Path=/api/employee/**
+            - Path=/api/supplier/**
           filters:
             - AuthenticationFilter
+
 
 server:
   port: 8082
